@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Joystick.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Materials/CanvasVoid.tres" type="Material" id=3]
+[ext_resource path="res://Resources/Arrow.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Mobile Controls.gd" type="Script" id=5]
+
+[node name="Mobile Controls" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Joystick" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 255.177, 314.908 )
+
+[node name="Jump btn" type="Sprite" parent="."]
+material = ExtResource( 3 )
+position = Vector2( 82.7601, 322.364 )
+rotation = 0.785398
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 1 )
+
+[node name="Arrow" type="Sprite" parent="Jump btn"]
+position = Vector2( -11.1244, -11.1244 )
+rotation = -2.35619
+scale = Vector2( 0.2, 0.329269 )
+texture = ExtResource( 4 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Jump btn"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -73.0202, -1.13871 )
+rotation = -0.785398
+scale = Vector2( 1.57357, 1.6438 )
+normal = ExtResource( 1 )
+shape_centered = false
+shape_visible = false
+action = "ui_up"
+visibility_mode = 1
+
+[node name="BackBtn" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 0.501961 )
+position = Vector2( 74.8939, 77.3641 )
+rotation = 3.14159
+scale = Vector2( 0.1, 0.164634 )
+texture = ExtResource( 4 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="BackBtn"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 183.53, -154.366 )
+rotation = 1.5708
+scale = Vector2( 4.77899, 8.21901 )
+normal = ExtResource( 1 )
+shape_centered = false
+shape_visible = false
+action = "ui_cancel"
+visibility_mode = 1
+
+[node name="Tween" type="Tween" parent="."]

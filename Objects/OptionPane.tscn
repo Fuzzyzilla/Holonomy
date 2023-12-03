@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/HintFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/OptionPane.gd" type="Script" id=2]
+
+[node name="Spatial" type="Spatial"]
+transform = Transform( 0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, 0, 0.01 )
+script = ExtResource( 2 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 256, 256 )
+transparent_bg = true
+keep_3d_linear = true
+render_target_v_flip = true
+
+[node name="Label" type="Label" parent="Viewport"]
+margin_left = -32.0
+margin_top = 20.0
+margin_right = 224.0
+margin_bottom = 120.0
+rect_scale = Vector2( 1.25, 1.25 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Master
+Volume"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="Viewport"]
+margin_top = 150.0
+margin_right = 256.0
+margin_bottom = 300.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "High
+"
+align = 1

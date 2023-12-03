@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/LevelCommon.gd" type="Script" id=1]
+[ext_resource path="res://Objects/DecorativePips.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/HolonomyWarps.tscn" type="PackedScene" id=3]
+
+[node name="LevelCommon" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0.784314 )
+margin_right = 3072.0
+margin_bottom = 512.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+margin_right = 512.0
+margin_bottom = 512.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="."]
+margin_left = 512.0
+margin_right = 1024.0
+margin_bottom = 512.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="."]
+margin_left = 1024.0
+margin_right = 1536.0
+margin_bottom = 512.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="."]
+margin_left = 1536.0
+margin_right = 2048.0
+margin_bottom = 512.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="."]
+margin_left = 2048.0
+margin_right = 2560.0
+margin_bottom = 512.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReferenceRect6" type="ReferenceRect" parent="."]
+margin_left = 2560.0
+margin_right = 3072.0
+margin_bottom = 512.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background Dots" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.501961 )
+
+[node name="1" parent="Background Dots" instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 0.784314 )
+position = Vector2( 256, 256 )
+numPips = 1
+
+[node name="2" parent="Background Dots" instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 0.784314 )
+position = Vector2( 768, 256 )
+numPips = 2
+
+[node name="6" parent="Background Dots" instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 0.784314 )
+position = Vector2( 1280, 256 )
+numPips = 6
+
+[node name="5" parent="Background Dots" instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 0.784314 )
+position = Vector2( 1792, 256 )
+numPips = 5
+
+[node name="3" parent="Background Dots" instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 0.784314 )
+position = Vector2( 2304, 256 )
+numPips = 3
+
+[node name="4" parent="Background Dots" instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 0.784314 )
+position = Vector2( 2816, 256 )
+numPips = 4
+
+[node name="HolonomyWarps" parent="." instance=ExtResource( 3 )]

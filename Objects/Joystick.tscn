@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Joystick.gd" type="Script" id=1]
+[ext_resource path="res://Materials/WhiteCircle.tres" type="Material" id=2]
+
+[node name="Joystick" type="Node2D"]
+script = ExtResource( 1 )
+enabled = true
+touch_distance = 150.0
+graphic_radius = 100.0
+
+[node name="Rect" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Rect"]
+margin_left = -1.90735e-06
+margin_top = -28.0
+margin_right = 40.0
+margin_bottom = 12.0
+rect_rotation = 45.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Line"]
+margin_top = -1.0
+margin_right = 1.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Circle" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Circle"]
+modulate = Color( 1, 1, 1, 0.12549 )
+material = ExtResource( 2 )
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource( 2 )
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 36.0
+margin_bottom = 36.0
+rect_scale = Vector2( 0.2, 0.2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]

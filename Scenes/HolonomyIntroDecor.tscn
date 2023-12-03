@@ -1,0 +1,229 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Resources/CubeMesh.tres" type="CubeMesh" id=1]
+[ext_resource path="res://Materials/SpatialVoid.tres" type="Material" id=2]
+[ext_resource path="res://Sounds/earthquake.ogg" type="AudioStream" id=3]
+
+[node name="Spatial" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.12, 0 )
+
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 8.52925, 0, 0, 0, 1, 0, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, -0.952776 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial2" type="Spatial" parent="."]
+transform = Transform( 0.633748, 0, 0, 0, 6.49096, 0, 0, 0, 0.633748, 0.743503, 0, 0.791763 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial2"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, -1.5034 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial3" type="Spatial" parent="."]
+transform = Transform( -0.258819, 0, -0.965926, 0, 8.52925, 0, 0.965926, 0, -0.258819, 3.74013, 0, 3.05144 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial3"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial5" type="Spatial" parent="."]
+transform = Transform( -0.258819, 0, -0.965926, 0, 10.3427, 0, 0.965926, 0, -0.258819, 3.84039, 0, 3.9054 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial5"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial4" type="Spatial" parent="."]
+transform = Transform( -0.164026, 0, -0.612153, 0, 6.49096, 0, 0.612153, 0, -0.164026, 2.78291, 0, 3.56469 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial4"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial12" type="Spatial" parent="."]
+transform = Transform( -0.164026, 0, -0.612153, 0, 6.49096, 0, 0.612153, 0, -0.164026, -0.775431, 0, 3.56469 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial12"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial13" type="Spatial" parent="."]
+transform = Transform( -0.439784, 0, -0.456318, 0, 3.26024, 0, 0.456318, 0, -0.439784, -0.144863, 0, 4.41989 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial13"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial6" type="Spatial" parent="."]
+transform = Transform( -0.866025, 0, -0.5, 0, 8.52925, 0, 0.5, 0, -0.866025, -3.18446, 0, 3.47948 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial6"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial7" type="Spatial" parent="."]
+transform = Transform( -0.866025, 0, -0.5, 0, 10.3427, 0, 0.5, 0, -0.866025, -3.71741, 0, 4.15422 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial7"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial8" type="Spatial" parent="."]
+transform = Transform( -0.548842, 0, -0.316874, 0, 6.49096, 0, 0.316874, 0, -0.548842, -4.22424, 0, 3.16555 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial8"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial14" type="Spatial" parent="."]
+transform = Transform( 0.851233, 0, -0.524788, 0, 10.3427, 0, 0.524788, 0, 0.851233, -3.65608, 0, -1.00015 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial14"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial15" type="Spatial" parent="."]
+transform = Transform( 0.539467, 0, -0.332583, 0, 6.49096, 0, 0.332583, 0, 0.539467, -4.28557, 0, -0.0846786 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial15"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial9" type="Spatial" parent="."]
+transform = Transform( -0.539138, 0, 0.842217, 0, 5.85748, 0, -0.842217, 0, -0.539138, -3.52091, 0, 2.38375 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial9"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial16" type="Spatial" parent="."]
+transform = Transform( 0.472853, 0, -0.669493, 0, 6.99092, 0, 0.669493, 0, 0.472853, -3.30182, 0, -4.2757 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial16"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial17" type="Spatial" parent="."]
+transform = Transform( 0.29967, 0, -0.42429, 0, 5.32026, 0, 0.42429, 0, 0.29967, -3.48033, 0, -3.40355 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial17"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial18" type="Spatial" parent="."]
+transform = Transform( -0.647134, 0, -0.503019, 0, 4.80103, 0, 0.503019, 0, -0.647134, -4.17103, 0, -3.91917 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial18"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial10" type="Spatial" parent="."]
+transform = Transform( -0.539138, 0, 0.842217, 0, 7.10288, 0, -0.842217, 0, -0.539138, -4.21935, 0, 1.88226 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial10"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Spatial11" type="Spatial" parent="."]
+transform = Transform( -0.341678, 0, 0.533753, 0, 4.45768, 0, -0.533753, 0, -0.341678, -3.25493, 0, 1.33069 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial11"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.2, 0 )
+material_override = ExtResource( 2 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 2.0
+autoplay = true

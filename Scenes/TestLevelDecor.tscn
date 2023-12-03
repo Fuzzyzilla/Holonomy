@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Materials/SpatialVoid.tres" type="Material" id=1]
+[ext_resource path="res://Resources/CubeMesh.tres" type="CubeMesh" id=2]
+[ext_resource path="res://Sounds/chimes.ogg" type="AudioStream" id=3]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1.0654, 0, 1.0654, -0.872723, 0.864208, 0.872723, -0.611087, -1.23422, 0.611087, 0, -9.19144, 0 )
+material_override = ExtResource( 1 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 0.241436, 0.177744, 0.0654269, -0.177744, 0.17601, 0.177744, 0.0654269, -0.177744, 0.241436, 0, -12.4688, 0 )
+material_override = ExtResource( 1 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( -0.779103, 7.8904e-08, -0.779103, -0.638204, 0.631977, 0.638204, 0.446875, 0.902557, -0.446875, 0, -15.0192, 0 )
+material_override = ExtResource( 1 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -8.0
+autoplay = true

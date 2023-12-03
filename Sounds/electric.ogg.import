@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/electric.ogg-4b83400a390560ca7bdc416d4941816b.oggstr"
+
+[deps]
+
+source_file="res://Sounds/electric.ogg"
+dest_files=[ "res://.import/electric.ogg-4b83400a390560ca7bdc416d4941816b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=1.8

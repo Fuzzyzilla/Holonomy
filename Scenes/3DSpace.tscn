@@ -1,0 +1,491 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Resources/CubeMesh.tres" type="CubeMesh" id=1]
+[ext_resource path="res://Resources/2DTexture.tres" type="Texture" id=2]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/3DRoot.gd" type="Script" id=4]
+[ext_resource path="res://Materials/WhiteCircle.tres" type="Material" id=5]
+[ext_resource path="res://Scenes/LevelSelect.gd" type="Script" id=6]
+[ext_resource path="res://Resources/Cantarell-Regular.otf" type="DynamicFontData" id=7]
+[ext_resource path="res://Sounds/click.wav" type="AudioStream" id=8]
+[ext_resource path="res://Resources/Arrow.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/CameraFocus.gd" type="Script" id=10]
+[ext_resource path="res://icon.png" type="Texture" id=11]
+[ext_resource path="res://Materials/SpatialVoid.tres" type="Material" id=12]
+[ext_resource path="res://Resources/Subtitle.tres" type="DynamicFont" id=13]
+[ext_resource path="res://Objects/Mobile Controls.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scripts/Transition.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/fade_in.gd" type="Script" id=16]
+[ext_resource path="res://Resources/HintFont.tres" type="DynamicFont" id=17]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeOut"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:wiggle_amount")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.5, 1.0 ]
+}
+
+[sub_resource type="Environment" id=3]
+background_mode = 1
+background_color = Color( 1, 1, 1, 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+fog_color = Color( 1, 1, 1, 1 )
+fog_sun_color = Color( 1, 1, 1, 1 )
+fog_depth_end = 20.0
+fog_depth_curve = 0.225313
+fog_height_curve = 0.554785
+dof_blur_far_distance = 100.0
+glow_enabled = true
+glow_intensity = 2.0
+glow_strength = 1.3
+glow_hdr_threshold = 0.95
+
+[sub_resource type="Animation" id=4]
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "load_next"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Transition:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.3, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:global_volume")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -20.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Transition:fill_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.509804, 0.509804, 0.509804, 1 )
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+uniform vec3 light_color;
+uniform vec3 dark_color;
+
+void fragment() {
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	float brightness = color.r + color.b + color.g;
+	brightness /= 3.0;
+	COLOR.rgb = pow(mix(pow(dark_color,vec3(2.2)), pow(light_color, vec3(2.2)), brightness), vec3(1.0/2.2));
+	COLOR.a = 1.0;
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+shader_param/light_color = Vector3( 1, 1, 1 )
+shader_param/dark_color = Vector3( 1, 0, 0 )
+
+[node name="3DRoot" type="Spatial" groups=["3DRoot"]]
+script = ExtResource( 4 )
+menu_light_color = Color( 1, 1, 1, 1 )
+menu_dark_color = Color( 0.164706, 0.145098, 0.345098, 1 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 256, 256 )
+transparent_bg = true
+disable_3d = true
+keep_3d_linear = true
+usage = 1
+render_target_v_flip = true
+render_target_clear_mode = 1
+render_target_update_mode = 0
+
+[node name="Camera2D" type="Camera2D" parent="Viewport"]
+offset = Vector2( 1536, 256 )
+current = true
+
+[node name="Frames" type="Spatial" parent="."]
+
+[node name="0" type="Sprite3D" parent="Frames"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.12 )
+pixel_size = 0.02
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 512 )
+
+[node name="1" type="Sprite3D" parent="Frames"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.12, 0, 0 )
+pixel_size = 0.02
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 512, 0, 512, 512 )
+
+[node name="2" type="Sprite3D" parent="Frames"]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, -5.12 )
+pixel_size = 0.02
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1024, 0, 512, 512 )
+
+[node name="3" type="Sprite3D" parent="Frames"]
+transform = Transform( 7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -5.12, 0, 0 )
+pixel_size = 0.02
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1536, 0, 512, 512 )
+
+[node name="4" type="Sprite3D" parent="Frames"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.12, 0 )
+pixel_size = 0.02
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 2048, 0, 512, 512 )
+
+[node name="5" type="Sprite3D" parent="Frames"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -5.12, 0 )
+pixel_size = 0.02
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 2560, 0, 512, 512 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.98778, 26.3944 )
+current = true
+script = ExtResource( 3 )
+
+[node name="Menu" type="Control" parent="Camera"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Camera/Menu"]
+anchor_right = 1.0
+margin_top = 41.5311
+margin_bottom = 126.531
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Holonomy"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuFade" type="AnimationPlayer" parent="Camera/Menu"]
+anims/FadeOut = SubResource( 2 )
+
+[node name="LevelName" type="Label" parent="Camera/Menu"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -348.46
+margin_bottom = -263.46
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 13 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Camera/Menu"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -74.0
+margin_bottom = -23.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Camera/Menu/CenterContainer"]
+margin_left = 256.0
+margin_top = 25.0
+margin_right = 256.0
+margin_bottom = 25.0
+
+[node name="Node2D" type="Node2D" parent="Camera/Menu/CenterContainer/Control"]
+script = ExtResource( 16 )
+on_load_delay = 3.0
+
+[node name="Label3" type="Label" parent="Camera/Menu/CenterContainer/Control/Node2D"]
+modulate = Color( 1, 1, 1, 0.784314 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -146.524
+margin_top = -20.6269
+margin_right = 149.476
+margin_bottom = 16.3731
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 17 )
+text = "Enter or Tap to Select."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera/Menu"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_right = 12.0
+margin_bottom = 256.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="Control" parent="Camera/Menu/HBoxContainer"]
+margin_right = 10.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 10, 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow" type="Sprite" parent="Camera/Menu/HBoxContainer/Left"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 73.7927, 68.887 )
+rotation = 3.14159
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 9 )
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="Camera/Menu/HBoxContainer/Left/Arrow"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 179.376, 210.184 )
+rotation = -3.14159
+scale = Vector2( 6.36502, 6.41758 )
+normal = ExtResource( 11 )
+shape_centered = false
+shape_visible = false
+action = "ui_left"
+visibility_mode = 1
+
+[node name="OptionsLabel" type="Node2D" parent="Camera/Menu/HBoxContainer/Left"]
+script = ExtResource( 16 )
+on_load_delay = 1.0
+
+[node name="Label" type="Label" parent="Camera/Menu/HBoxContainer/Left/OptionsLabel"]
+margin_left = 37.7927
+margin_top = 92.887
+margin_right = 143.793
+margin_bottom = 129.887
+rect_scale = Vector2( 0.8, 0.8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 13 )
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control3" type="CenterContainer" parent="Camera/Menu/HBoxContainer"]
+margin_left = 14.0
+margin_right = 510.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 10, 10 )
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="Camera/Menu/HBoxContainer/Control3"]
+margin_left = 248.0
+margin_top = 128.0
+margin_right = 248.0
+margin_bottom = 128.0
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="Camera/Menu/HBoxContainer/Control3/Control"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -79.495, -139.443 )
+scale = Vector2( 2.78585, 2.72525 )
+normal = ExtResource( 11 )
+shape_centered = false
+shape_visible = false
+action = "ui_accept"
+
+[node name="Right" type="Control" parent="Camera/Menu/HBoxContainer"]
+margin_left = 514.0
+margin_right = 524.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 10, 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow" type="Sprite" parent="Camera/Menu/HBoxContainer/Right"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -83.99, 68.887 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 9 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Camera/Menu/HBoxContainer/Right/Arrow"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -204.176, -196.729 )
+scale = Vector2( 6.36502, 6.41758 )
+normal = ExtResource( 11 )
+shape_centered = false
+shape_visible = false
+action = "ui_right"
+
+[node name="CreditsLabel" type="Node2D" parent="Camera/Menu/HBoxContainer/Right"]
+script = ExtResource( 16 )
+on_load = false
+
+[node name="Label" type="Label" parent="Camera/Menu/HBoxContainer/Right/CreditsLabel"]
+margin_left = -118.414
+margin_top = 93.7779
+margin_right = -12.4144
+margin_bottom = 130.778
+rect_scale = Vector2( 0.8, 0.8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 13 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CameraFocus" type="Spatial" parent="." groups=["CameraTarget"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.216406, 4.91061, 14.1561 )
+script = ExtResource( 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="CameraFocus"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+visible = false
+material_override = ExtResource( 12 )
+mesh = ExtResource( 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.137881, -0.828188, 0.543226, 0.203749, 0.560451, 0.802733, -0.969265, -1.44432e-08, 0.246018, 22.2088, 9.30028, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/LevelTransition = SubResource( 4 )
+
+[node name="LevelSelect" type="MeshInstance" parent="."]
+transform = Transform( 5.12, 0, 0, 0, 5.12, 0, 0, 0, 5.12, 0, 0, 0 )
+material_override = SubResource( 5 )
+mesh = ExtResource( 1 )
+script = ExtResource( 6 )
+
+[node name="0" type="Spatial" parent="LevelSelect"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="1" type="Spatial" parent="LevelSelect"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 0 )
+
+[node name="2" type="Spatial" parent="LevelSelect"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1 )
+
+[node name="3" type="Spatial" parent="LevelSelect"]
+transform = Transform( 7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -1, 0, 0 )
+
+[node name="Tween" type="Tween" parent="LevelSelect"]
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="LevelSelect"]
+stream = ExtResource( 8 )
+volume_db = -5.0
+
+[node name="LevelSelectFocus" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.82674, 17.162 )
+
+[node name="Mobile Controls" parent="." instance=ExtResource( 14 )]
+visible = false
+margin = 58.0
+
+[node name="Transition" type="Sprite" parent="."]
+material = ExtResource( 5 )
+position = Vector2( 256, 256 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 11 )
+script = ExtResource( 15 )
+
+[node name="Colorizer" type="ColorRect" parent="."]
+material = SubResource( 7 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorTween" type="Tween" parent="Colorizer"]
+
+[node name="TestTarget" type="Spatial" parent="."]
+transform = Transform( -0.818168, -0.146776, 0.277965, -0.499249, 0.660968, -0.280121, -0.285222, -0.73592, -0.30703, 2.8663, -1.68703, -8.81383 )
+script = ExtResource( 10 )
+up_vec = Vector3( -1, 1, -1 )
+
+[node name="TestVec" type="Spatial" parent="."]
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="TestVec"]
+transform = Transform( 0.619476, 0, 0, 0, 0.0236657, 0, 0, 0, 0.0236657, 0.58893, 0, 0 )
+mesh = ExtResource( 1 )

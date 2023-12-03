@@ -1,0 +1,155 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/HolonomyWarp.tscn" type="PackedScene" id=2]
+
+[node name="HolonomyWarps" type="Node2D"]
+
+[node name="0 to 3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2058, 256 )
+rotation = -1.5708
+warp_to = NodePath("../3 to 0")
+new_y = Vector2( 0, 1 )
+new_x = Vector2( 1, 0 )
+face = 3
+
+[node name="3 to 0" parent="." instance=ExtResource( 2 )]
+position = Vector2( -10, 256 )
+rotation = -1.5708
+scale = Vector2( 1, -1 )
+warp_to = NodePath("../0 to 3")
+new_y = Vector2( 0, 1 )
+new_x = Vector2( 1, 0 )
+
+[node name="0 to 4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 256, -10 )
+rotation = 3.14159
+warp_to = NodePath("../4 to 0")
+new_y = Vector2( 0, 1 )
+new_x = Vector2( 1, 0 )
+
+[node name="1 to 4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 768, -10 )
+rotation = 3.14159
+warp_to = NodePath("../4 to 1")
+new_y = Vector2( 1, 0 )
+new_x = Vector2( 0, -1 )
+face = 1
+
+[node name="2 to 4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1280, -10 )
+rotation = 3.14159
+warp_to = NodePath("../4 to 2")
+new_y = Vector2( 0, -1 )
+new_x = Vector2( -1, 0 )
+face = 2
+
+[node name="3 to 4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1792, -10 )
+rotation = 3.14159
+scale = Vector2( -1, 1 )
+warp_to = NodePath("../4 to 3")
+new_y = Vector2( -1, 0 )
+new_x = Vector2( 0, 1 )
+face = 3
+
+[node name="0 to 5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 256, 522 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+warp_to = NodePath("../5 to 0")
+new_y = Vector2( 0, 1 )
+new_x = Vector2( 1, 0 )
+
+[node name="1 to 5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 768, 522 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+warp_to = NodePath("../5 to 1")
+new_y = Vector2( -1, 0 )
+new_x = Vector2( 0, 1 )
+face = 1
+
+[node name="2 to 5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1280, 522 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+warp_to = NodePath("../5 to 2")
+new_y = Vector2( 0, -1 )
+new_x = Vector2( -1, 0 )
+face = 2
+
+[node name="3 to 5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1792, 522 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+warp_to = NodePath("../5 to 3")
+new_y = Vector2( 1, 0 )
+new_x = Vector2( 0, -1 )
+face = 3
+
+[node name="4 to 0" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2304, 522 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+warp_to = NodePath("../0 to 4")
+new_y = Vector2( 0, 1 )
+new_x = Vector2( 1, 0 )
+face = 4
+
+[node name="4 to 1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2570, 256 )
+rotation = -1.5708
+scale = Vector2( -1, 1 )
+warp_to = NodePath("../1 to 4")
+new_y = Vector2( -1, 0 )
+new_x = Vector2( 0, 1 )
+face = 4
+
+[node name="4 to 2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2304, -10 )
+rotation = 8.74228e-08
+scale = Vector2( 1, -1 )
+warp_to = NodePath("../2 to 4")
+new_y = Vector2( 0, -1 )
+new_x = Vector2( -1, 0 )
+face = 4
+
+[node name="4 to 3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2038, 256 )
+rotation = 1.5708
+warp_to = NodePath("../3 to 4")
+new_y = Vector2( 1, 0 )
+new_x = Vector2( 0, -1 )
+face = 4
+
+[node name="5 to 0" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2816, -10 )
+rotation = 3.14159
+warp_to = NodePath("../0 to 5")
+new_y = Vector2( 0, 1 )
+new_x = Vector2( 1, 0 )
+face = 5
+
+[node name="5 to 1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3082, 256 )
+rotation = -1.5708
+warp_to = NodePath("../1 to 5")
+new_y = Vector2( 1, 0 )
+new_x = Vector2( 0, -1 )
+face = 5
+
+[node name="5 to 2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2816, 522 )
+rotation = 8.74228e-08
+warp_to = NodePath("../2 to 5")
+new_y = Vector2( 0, -1 )
+new_x = Vector2( -1, 0 )
+face = 5
+
+[node name="5 to 3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2550, 256 )
+rotation = 1.5708
+warp_to = NodePath("../3 to 5")
+new_y = Vector2( -1, 0 )
+new_x = Vector2( 0, 1 )
+face = 5

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/LevelCommon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/BlackTiles.tres" type="TileSet" id=3]
+[ext_resource path="res://Objects/Goal.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LevelCommon" parent="." instance=ExtResource( 1 )]
+missing_face = 5
+missing_pip = 0
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 768, 256 )
+light_color = Color( 0.262745, 0.25098, 0.282353, 1 )
+dark_color = Color( 0.945098, 0.921569, 0.921569, 1 )
+damp = 0.97
+
+[node name="Goal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1280, 256 )
+next_level = -1
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 31, 0, 0, 32, 0, 0, 63, 0, 0, 64, 0, 0, 95, 0, 0, 96, 0, 0, 127, 0, 0, 128, 0, 0, 159, 0, 0, 160, 0, 0, 191, 0, 0, 2031616, 0, 0, 2031647, 0, 0, 2031648, 0, 0, 2031679, 0, 0, 2031680, 0, 0, 2031711, 0, 0, 2031712, 0, 0, 2031743, 0, 0, 2031744, 0, 0, 2031775, 0, 0, 2031776, 0, 0, 2031807, 0, 0 )

@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sounds/electric.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Resources/CubeMesh.tres" type="CubeMesh" id=2]
+[ext_resource path="res://Sounds/earthquake.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Scripts/RandomScale3D.gd" type="Script" id=4]
+
+[sub_resource type="Curve" id=1]
+bake_resolution = 16
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.107438, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="ElectricNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -15.0
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 2.0
+autoplay = true
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+mesh = ExtResource( 2 )
+material/0 = null
+script = ExtResource( 4 )
+min_scale = 1.1
+max_scale = 1.0
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+amount = 40
+lifetime = 0.5
+preprocess = 20.0
+mesh = ExtResource( 2 )
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 15.0
+initial_velocity_random = 1.0
+angular_velocity = 551.25
+radial_accel = 1.0
+angle = 720.0
+angle_random = 0.8
+scale_amount = 0.1
+scale_amount_curve = SubResource( 1 )
+
+[node name="BigParticles" type="CPUParticles" parent="."]
+emitting = false
+amount = 80
+lifetime = 0.5
+one_shot = true
+preprocess = 20.0
+mesh = ExtResource( 2 )
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 124.38
+initial_velocity_random = 1.0
+angular_velocity = 551.25
+radial_accel = -200.0
+angle = 720.0
+angle_random = 0.8
+scale_amount = 0.2
+scale_amount_curve = SubResource( 1 )

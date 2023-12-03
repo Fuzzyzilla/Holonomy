@@ -1,0 +1,207 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Objects/LevelCommon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/fade_in.gd" type="Script" id=3]
+[ext_resource path="res://Objects/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/BlackBlock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/HintFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Resources/Arrow.png" type="Texture" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 40.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 74.1326 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LevelCommon" parent="." instance=ExtResource( 1 )]
+missing_face = 1
+missing_pip = 0
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 346.279, 474.994 )
+light_color = Color( 0.835294, 0.792157, 0.937255, 1 )
+dark_color = Color( 0.309804, 0.121569, 0.121569, 1 )
+
+[node name="Goal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 256, 230.573 )
+next_level = 1
+
+[node name="BlackBlock" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1024, 502 )
+scale = Vector2( 102.4, 1 )
+
+[node name="BlackBlock2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 385.193, 336.779 )
+scale = Vector2( 22.2, 1 )
+
+[node name="BlackBlock3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 173.258, 411.436 )
+scale = Vector2( 1, 8.2 )
+
+[node name="BlackBlock4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 597.065, 168.221 )
+scale = Vector2( 1, 17.4 )
+
+[node name="BlackBlock16" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1279.67, 94.4901 )
+scale = Vector2( 1, 17.4 )
+
+[node name="BlackBlock15" parent="." instance=ExtResource( 5 )]
+position = Vector2( 722.961, 197.762 )
+rotation = -0.785398
+scale = Vector2( 1, 17.4 )
+
+[node name="BlackBlock5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1279.92, 494.958 )
+rotation = 0.785398
+scale = Vector2( 11.3899, 11.3899 )
+
+[node name="BlackBlock7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1535.83, 2.48531 )
+rotation = 0.785398
+scale = Vector2( 11.3899, 11.3899 )
+
+[node name="BlackBlock17" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2047.8, 2.48531 )
+rotation = 0.785398
+scale = Vector2( 11.3899, 11.3899 )
+
+[node name="BlackBlock20" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2560.32, 2.48525 )
+rotation = 0.785398
+scale = Vector2( 11.3899, 11.3899 )
+
+[node name="BlackBlock21" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3072.29, 2.48525 )
+rotation = 0.785398
+scale = Vector2( 11.3899, 11.3899 )
+
+[node name="BlackBlock22" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2560.32, 512.066 )
+rotation = 0.785398
+scale = Vector2( 11.3899, 11.3899 )
+
+[node name="BlackBlock24" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2048.17, 512.066 )
+rotation = 0.785398
+scale = Vector2( 11.3899, 11.3899 )
+
+[node name="BlackBlock23" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3072.29, 512.066 )
+rotation = 0.785398
+scale = Vector2( 11.3899, 11.3899 )
+
+[node name="BlackBlock18" parent="." instance=ExtResource( 5 )]
+position = Vector2( -0.361462, 2.48531 )
+rotation = 0.785398
+scale = Vector2( 11.3899, 11.3899 )
+
+[node name="BlackBlock19" parent="." instance=ExtResource( 5 )]
+position = Vector2( 511.932, 2.48531 )
+rotation = 0.785398
+scale = Vector2( 11.3899, 11.3899 )
+
+[node name="BlackBlock8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1023.93, 2.48531 )
+rotation = 0.785398
+scale = Vector2( 11.3899, 11.3899 )
+
+[node name="BlackBlock6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1792.55, 429.603 )
+scale = Vector2( 8.32, 1 )
+
+[node name="BlackBlock9" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1994.97, 429.74 )
+scale = Vector2( 6.00039, 1 )
+
+[node name="BlackBlock10" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2088.35, 389.286 )
+scale = Vector2( 11.64, 1 )
+
+[node name="BlackBlock11" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2037.78, 350.593 )
+scale = Vector2( 8.32, 1 )
+
+[node name="BlackBlock12" parent="." instance=ExtResource( 5 )]
+position = Vector2( -13.0874, 429.74 )
+scale = Vector2( 4.4, 1 )
+
+[node name="BlackBlock13" parent="." instance=ExtResource( 5 )]
+position = Vector2( -13.0874, 389.286 )
+scale = Vector2( 11.64, 1 )
+
+[node name="BlackBlock14" parent="." instance=ExtResource( 5 )]
+position = Vector2( -13.0874, 350.593 )
+scale = Vector2( 15.5126, 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 1794.69, 361.871 )
+script = ExtResource( 3 )
+on_load = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="Area2D"]
+margin_left = -94.4352
+margin_top = -76.1718
+margin_right = 91.5648
+margin_bottom = 24.8282
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Hold        to
+jump higher."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow" type="Sprite" parent="Area2D"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 17.7454, -48.4258 )
+rotation = -1.57079
+scale = Vector2( 0.121077, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="Controls" type="Area2D" parent="."]
+position = Vector2( 345.55, 430.866 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+on_load_delay = 5.0
+
+[node name="Arrow" type="Sprite" parent="Controls"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 47.8342, -2.00015 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="Arrow2" type="Sprite" parent="Controls"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -47.4971, -2.00018 )
+rotation = 3.14159
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="Arrow3" type="Sprite" parent="Controls"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -0.303375, -48.7219 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Controls"]
+position = Vector2( 81.1465, -10.9316 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Controls"]
+position = Vector2( -76.9421, -10.9316 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="show_if_player" flags=6]
+[connection signal="body_entered" from="Controls" to="Controls" method="hide_if_player"]
